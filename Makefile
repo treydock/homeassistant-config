@@ -14,5 +14,8 @@ check:
 restart:
 	curl -X POST -H "Authorization: Bearer $(TOKEN)" -H "Content-Type: application/json" 127.0.0.1:8123/api/services/homeassistant/restart
 
+reload:
+	curl -X POST -H "Authorization: Bearer $(TOKEN)" -H "Content-Type: application/json" 127.0.0.1:8123/api/services/automation/reload
+
 entities:
 	curl -X GET -H "Authorization: Bearer $(TOKEN)" -H "Content-Type: application/json" 127.0.0.1:8123/api/states | jq '.[] | {name: .attributes.friendly_name, entity_id}'
