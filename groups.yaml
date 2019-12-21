@@ -9,5 +9,5 @@ master_bedroom:
     - remote.master_bedroom
 downstairs:
   entities:
-    - media_player.50_tcl_roku_tv
-    - remote.50_tcl_roku_tv
+    - media_player.tcl_roku_tv
+    - remote.tcl_roku_tv
