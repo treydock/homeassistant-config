@@ -14,3 +14,11 @@ group: !include groups.yaml
 automation: !include automations.yaml
 script: !include scripts.yaml
 scene: !include scenes.yaml
+
+roku:
+  # Living room roku
+  - host: 192.168.68.131
+  # Master roku
+  - host: 192.168.68.103
+  # Downstairs TV
+  - host: 192.168.68.122
