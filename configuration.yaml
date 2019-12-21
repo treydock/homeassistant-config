@@ -15,6 +15,10 @@ automation: !include automations.yaml
 script: !include scripts.yaml
 scene: !include scenes.yaml
 
+discovery:
+  ignore:
+    - homekit
+
 roku:
   # Living room roku
   - host: 192.168.68.131
