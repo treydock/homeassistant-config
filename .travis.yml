@@ -4,4 +4,4 @@ services:
 before_install:
   - mv travis_secrets.yaml secrets.yaml
 script:
-  - docker run -it --rm -v .:/config:ro -v /etc/localtime:/etc/localtime:ro homeassistant/home-assistant:stable hass -c /config --script check_config -i -f
+  - docker run -it --rm -v $(pwd):/config:ro -v /etc/localtime:/etc/localtime:ro homeassistant/home-assistant:stable hass -c /config --script check_config -i -f
