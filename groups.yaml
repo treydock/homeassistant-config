@@ -1,0 +1,13 @@
+living_room:
+  entities:
+    - media_player.living_room
+    - remote.living_room
+    - media_player.vizio_smartcast
+master_bedroom:
+  entities:
+    - media_player.master_bedroom
+    - remote.master_bedroom
+downstairs:
+  entities:
+    - media_player.50_tcl_roku_tv
+    - remote.50_tcl_roku_tv
