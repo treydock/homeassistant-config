@@ -3,6 +3,9 @@ services:
   - docker
 before_install:
   - mv travis_secrets.yaml secrets.yaml
+  - mkdir custom_components
+  - git clone https://github.com/albertogeniola/meross-homeassistant.git /tmp/meross-homeassistant
+  - cp -r /tmp/meross-homeassistant/custom_components/meross_cloud ./custom_components/meross_cloud
 script: docker run -it --rm -v $(pwd):/config:ro -v /etc/localtime:/etc/localtime:ro $CONTAINER hass -c /config --script check_config -i -f
 env:
   - CONTAINER="homeassistant/home-assistant:stable"
