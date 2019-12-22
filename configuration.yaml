@@ -68,3 +68,6 @@ hue:
 meross_cloud:
   username: !secret meross_username
   password: !secret meross_password
+
+plex:
+  host: 192.168.68.105
