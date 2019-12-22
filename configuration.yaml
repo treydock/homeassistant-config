@@ -32,6 +32,9 @@ discovery:
   ignore:
     - homekit
 
+mqtt:
+  broker: 127.0.0.1
+
 roku:
   # Living room roku
   - host: 192.168.68.131
