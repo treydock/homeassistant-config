@@ -1,3 +1,18 @@
+announce_trey_is_home:
+  alias: Announce Trey is home
+  sequence:
+#    - condition: state
+#      entity_id: 'device_tracker.connie'
+#      state: 'home'
+    - service: notify.alexa_media
+      data:
+        data:
+          type: tts
+        target:
+          - media_player.upstairs_echo_dot
+          - media_player.downstairs_echo_dot
+          - media_player.master_bedroom_echo_dot
+        message: "Trey is arriving home"
 restart_ha:
   alias: Restart HomeAssistant
   sequence:
