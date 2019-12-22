@@ -45,7 +45,7 @@ roku:
 media_player:
   - platform: vizio
     host: 192.168.68.104
-    access_token: ***REMOVED***
+    access_token: !secret vizio_access_token
     suppress_warning: true
 tplink:
   discovery: false
