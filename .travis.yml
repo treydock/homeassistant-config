@@ -6,6 +6,8 @@ before_install:
   - mkdir custom_components
   - git clone https://github.com/albertogeniola/meross-homeassistant.git /tmp/meross-homeassistant
   - cp -r /tmp/meross-homeassistant/custom_components/meross_cloud ./custom_components/meross_cloud
+  - git clone https://github.com/custom-components/alexa_media_player.git /tmp/alexa_media_player
+  - cp -r /tmp/alexa_media_player/custom_components/alexa_media ./custom_components/alexa_media
 script: docker run -it --rm -v $(pwd):/config -v /etc/localtime:/etc/localtime:ro $CONTAINER hass -c /config --script check_config -i -f
 env:
   - CONTAINER="homeassistant/home-assistant:stable"
