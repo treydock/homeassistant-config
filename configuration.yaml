@@ -28,6 +28,8 @@ homeassistant:
   time_zone: America/New_York
   customize: !include customize.yaml
 
+shell_command: !include shell_command.yaml
+
 discovery:
   ignore:
     - homekit
@@ -71,3 +73,34 @@ meross_cloud:
 
 plex:
   host: 192.168.68.105
+
+switch:
+  - platform: wake_on_lan
+    name: "desktop"
+    mac: '30:9c:23:df:11:70'
+    turn_off:
+      service: shell_command.desktop_sleep
+
+binary_sensor:
+  - platform: ping
+    host: 192.168.68.105
+    name: "desktop_ping"
+
+sabnzbd:
+  api_key: !secret sabnzbd_api_key
+  host: 192.168.68.105
+  port: 8085
+  name: sabnzbd
+  sensors:
+    - current_status
+
+alexa_media:
+  accounts:
+    - email: !secret amazon_user
+      password: !secret amazon_password
+      url: amazon.com
+      exclude_devices:
+        - "Connie's Alexa Apps"
+        - "This Device"
+        - "John's Alexa Apps"
+        - "John's Echo Auto"

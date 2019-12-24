@@ -1,1 +1,10 @@
-[]
+- platform: command_line
+  name: desktop_ssh_connections
+  command: "/config/scripts/desktop-ssh-connections.sh"
+  scan_interval: 300
+  command_timeout: 10
+- platform: command_line
+  name: desktop_active
+  command: "/config/scripts/desktop-active.sh"
+  scan_interval: 300
+  command_timeout: 10
