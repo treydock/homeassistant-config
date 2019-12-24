@@ -29,6 +29,8 @@ homeassistant:
   time_zone: America/New_York
   customize: !include customize.yaml
 
+ios:
+
 # Example configuration.yaml entry
 zone:
   - name: OSC
