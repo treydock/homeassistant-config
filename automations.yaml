@@ -47,7 +47,17 @@
             entity_id: sensor.sabnzbd_status
             state: 'Paused'
   action:
-    service: switch.turn_off
-    data:
-      entity_id:
-        - switch.desktop
+    - delay:
+        minutes: 10
+    - condition: and
+      conditions:
+        - condition: state
+          entity_id: sensor.desktop_ssh_connections
+          state: '0'
+        - condition: state
+          entity_id: sensor.plex_godmachine
+          state: '0'
+    - service: switch.turn_off
+      data:
+        entity_id:
+          - switch.desktop
