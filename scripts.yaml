@@ -13,6 +13,11 @@ announce_trey_is_home:
           - media_player.downstairs_echo_dot
           - media_player.master_bedroom_echo_dot
         message: "Trey is arriving home"
+desktop_sleep:
+  alias: Desktop Sleep
+  sequence:
+    - alias: Desktop Sleep
+      service: shell_command.desktop_sleep
 restart_ha:
   alias: Restart HomeAssistant
   sequence:
