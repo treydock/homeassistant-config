@@ -6,5 +6,5 @@
 - platform: command_line
   name: desktop_active
   command: "/config/scripts/desktop-active.sh"
-  scan_interval: 300
+  scan_interval: 120
   command_timeout: 10
