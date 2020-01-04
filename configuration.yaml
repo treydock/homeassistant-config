@@ -95,12 +95,14 @@ meross_cloud:
 plex:
   host: 192.168.68.105
 
+wake_on_lan:
 switch:
   - platform: wake_on_lan
     name: "desktop"
     mac: '30:9c:23:df:11:70'
+    host: 192.168.68.105
     turn_off:
-      service: service.desktop_sleep
+      service: script.desktop_sleep
 
 binary_sensor:
   - platform: ping
