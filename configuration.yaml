@@ -71,9 +71,10 @@ media_player:
     suppress_warning: true
 tplink:
   discovery: false
-  switch:
+  dimmer:
     # Dining light
-    - host: 192.168.68.113
+    - host: 192.168.68.108
+  switch:
     # Front porch
     - host: 192.168.68.126
     # Kitchen light
