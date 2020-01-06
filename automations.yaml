@@ -64,3 +64,61 @@
       data:
         entity_id:
           - switch.desktop
+- alias: Connie or Trey is home
+  trigger:
+    - platform: state
+      entity_id: device_tracker.connie
+      to: 'home'
+    - platform: state
+      entity_id: device_tracker.trey
+      to: 'home'
+  condition:
+    condition: or
+    conditions:
+      - condition: sun
+        after: sunset
+        after_offset: "-00:30:00"
+      - condition: sun
+        before: sunrise
+  action:
+    - service: light.turn_on
+      data:
+        entity_id:
+          - light.downstairs_entry
+    - delay:
+        minutes: 5
+    - service: light.turn_off
+      data:
+        entity_id:
+          - light.downstairs_entry
+- alias: Trey is home
+  trigger:
+    - platform: state
+      entity_id: device_tracker.trey
+      to: 'home'
+  action:
+    - service: script.announce_trey_is_home
+- alias: Connie is home
+  trigger:
+    - platform: state
+      entity_id: device_tracker.connie
+      to: 'home'
+  action:
+    - service: script.announce_connie_is_home
+- alias: Turn on living room lights if no one home
+  trigger:
+    platform: sun
+    event: sunset
+    offset: "-00:30:00"
+  condition:
+    condition: and
+    conditions:
+      - condition: template
+        value_template: '{{ states("device_tracker.trey") != "home" }}'
+      - condition: template
+        value_template: '{{ states("device_tracker.connie") != "home" }}'
+  action:
+    - service: light.turn_on
+      data:
+        entity_id:
+          - light.living_room_lights

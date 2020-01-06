@@ -1,9 +1,9 @@
 announce_trey_is_home:
   alias: Announce Trey is home
   sequence:
-#    - condition: state
-#      entity_id: 'device_tracker.connie'
-#      state: 'home'
+    - condition: state
+      entity_id: 'device_tracker.connie'
+      state: 'home'
     - service: notify.alexa_media
       data:
         data:
@@ -13,6 +13,21 @@ announce_trey_is_home:
           - media_player.downstairs_echo_dot
           - media_player.master_bedroom_echo_dot
         message: "Trey is arriving home"
+announce_connie_is_home:
+  alias: Announce Connie is home
+  sequence:
+    - condition: state
+      entity_id: 'device_tracker.trey'
+      state: 'home'
+    - service: notify.alexa_media
+      data:
+        data:
+          type: tts
+        target:
+          - media_player.upstairs_echo_dot
+          - media_player.downstairs_echo_dot
+          - media_player.master_bedroom_echo_dot
+        message: "Connie is arriving home"
 desktop_sleep:
   alias: Desktop Sleep
   sequence:

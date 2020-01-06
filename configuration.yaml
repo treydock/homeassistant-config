@@ -46,7 +46,7 @@ zone:
   - name: Home
     latitude: !secret latitude
     longitude: !secret longitude
-    radius: 1000
+    radius: 800
     icon: mdi:home
 
 discovery:
@@ -88,6 +88,12 @@ tplink:
 hue:
   bridges:
     - host: 192.168.68.120
+light:
+  - platform: group
+    name: Living Room Lights
+    entities:
+      - light.living_room
+      - light.living_room_by_hallway
 meross_cloud:
   username: !secret meross_username
   password: !secret meross_password
