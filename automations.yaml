@@ -67,10 +67,10 @@
 - alias: Connie or Trey is home
   trigger:
     - platform: state
-      entity_id: device_tracker.connie
+      entity_id: person.connie
       to: 'home'
     - platform: state
-      entity_id: device_tracker.trey
+      entity_id: person.trey
       to: 'home'
   condition:
     condition: or
@@ -94,14 +94,14 @@
 - alias: Trey is home
   trigger:
     - platform: state
-      entity_id: device_tracker.trey
+      entity_id: person.trey
       to: 'home'
   action:
     - service: script.announce_trey_is_home
 - alias: Connie is home
   trigger:
     - platform: state
-      entity_id: device_tracker.connie
+      entity_id: person.connie
       to: 'home'
   action:
     - service: script.announce_connie_is_home
@@ -114,9 +114,9 @@
     condition: and
     conditions:
       - condition: template
-        value_template: '{{ states("device_tracker.trey") != "home" }}'
+        value_template: '{{ states("person.trey") != "home" }}'
       - condition: template
-        value_template: '{{ states("device_tracker.connie") != "home" }}'
+        value_template: '{{ states("person.connie") != "home" }}'
   action:
     - service: light.turn_on
       data:

@@ -2,7 +2,7 @@ announce_trey_is_home:
   alias: Announce Trey is home
   sequence:
     - condition: state
-      entity_id: 'device_tracker.connie'
+      entity_id: 'person.connie'
       state: 'home'
     - service: notify.alexa_media
       data:
@@ -17,7 +17,7 @@ announce_connie_is_home:
   alias: Announce Connie is home
   sequence:
     - condition: state
-      entity_id: 'device_tracker.trey'
+      entity_id: 'person.trey'
       state: 'home'
     - service: notify.alexa_media
       data:
