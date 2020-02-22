@@ -8,3 +8,4 @@
   command: "/config/scripts/desktop-active.sh"
   scan_interval: 120
   command_timeout: 10
+- platform: badnest

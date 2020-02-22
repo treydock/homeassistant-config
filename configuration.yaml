@@ -132,3 +132,10 @@ alexa_media:
         - "This Device"
         - "John's Alexa Apps"
         - "John's Echo Auto"
+badnest:
+  issue_token: !secret badnest_issue_token
+  cookie: !secret badnest_cookie
+  region: us
+climate:
+  - platform: badnest
+    scan_interval: 10
