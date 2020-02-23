@@ -1,3 +1,4 @@
+sensor:
 - platform: command_line
   name: desktop_ssh_connections
   command: "/config/scripts/desktop-ssh-connections.sh"
@@ -8,4 +9,3 @@
   command: "/config/scripts/desktop-active.sh"
   scan_interval: 120
   command_timeout: 10
-- platform: badnest

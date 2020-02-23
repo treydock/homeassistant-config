@@ -14,7 +14,6 @@ group: !include groups.yaml
 automation: !include_dir_merge_list automations
 script: !include scripts.yaml
 scene: !include scenes.yaml
-sensor: !include sensor.yaml
 shell_command: !include shell_command.yaml
 
 homeassistant:
@@ -28,6 +27,7 @@ homeassistant:
   # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
   time_zone: America/New_York
   customize: !include customize.yaml
+  packages: !include_dir_named packages
 
 ios:
 
@@ -135,10 +135,3 @@ alexa_media:
         - "This Device"
         - "John's Alexa Apps"
         - "John's Echo Auto"
-badnest:
-  issue_token: !secret badnest_issue_token
-  cookie: !secret badnest_cookie
-  region: us
-climate:
-  - platform: badnest
-    scan_interval: 10
