@@ -11,6 +11,13 @@
     - service: media_player.turn_off
       data:
         entity_id: media_player.vizio_smartcast
+- alias: 'Turn on compute'
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.desktop_ping
+      to: 'on'
+  action:
+    - service: script.restart_ha
 - alias: 'Turn off computer when idle'
   trigger:
     - platform: state
