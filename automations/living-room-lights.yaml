@@ -1,0 +1,17 @@
+- alias: Turn on living room lights if no one home
+  trigger:
+    platform: sun
+    event: sunset
+    offset: "-00:30:00"
+  condition:
+    condition: and
+    conditions:
+      - condition: template
+        value_template: '{{ states("person.trey") != "home" }}'
+      - condition: template
+        value_template: '{{ states("person.connie") != "home" }}'
+  action:
+    - service: light.turn_on
+      data:
+        entity_id:
+          - light.living_room_lights

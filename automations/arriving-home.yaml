@@ -1,0 +1,41 @@
+- alias: Connie or Trey is home
+  trigger:
+    - platform: state
+      entity_id: person.connie
+      to: 'home'
+    - platform: state
+      entity_id: person.trey
+      to: 'home'
+  condition:
+    condition: or
+    conditions:
+      - condition: sun
+        after: sunset
+        after_offset: "-00:30:00"
+      - condition: sun
+        before: sunrise
+  action:
+    - service: light.turn_on
+      data:
+        entity_id:
+          - light.downstairs_entry
+    - delay:
+        minutes: 5
+    - service: light.turn_off
+      data:
+        entity_id:
+          - light.downstairs_entry
+- alias: Trey is home
+  trigger:
+    - platform: state
+      entity_id: person.trey
+      to: 'home'
+  action:
+    - service: script.announce_trey_is_home
+- alias: Connie is home
+  trigger:
+    - platform: state
+      entity_id: person.connie
+      to: 'home'
+  action:
+    - service: script.announce_connie_is_home
