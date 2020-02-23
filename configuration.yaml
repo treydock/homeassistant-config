@@ -27,8 +27,9 @@ homeassistant:
 
 discovery:
   ignore:
-    - homekit
     - google_cast
+    - homekit
+    - sabnzbd
 ios:
 mqtt:
   broker: 127.0.0.1
