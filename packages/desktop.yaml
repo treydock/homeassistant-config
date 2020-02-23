@@ -1,3 +1,24 @@
+wake_on_lan:
+switch:
+  - platform: wake_on_lan
+    name: "desktop"
+    mac: '30:9c:23:df:11:70'
+    host: 192.168.68.105
+    turn_off:
+      service: script.desktop_sleep
+binary_sensor:
+  - platform: ping
+    host: 192.168.68.105
+    name: "desktop_ping"
+plex:
+  host: 192.168.68.105
+sabnzbd:
+  api_key: !secret sabnzbd_api_key
+  host: 192.168.68.105
+  port: 8085
+  name: sabnzbd
+  sensors:
+    - current_status
 sensor:
 - platform: command_line
   name: desktop_ssh_connections

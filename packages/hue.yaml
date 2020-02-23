@@ -1,0 +1,9 @@
+hue:
+  bridges:
+    - host: 192.168.68.120
+light:
+  - platform: group
+    name: Living Room Lights
+    entities:
+      - light.living_room
+      - light.living_room_by_hallway

@@ -6,10 +6,6 @@ default_config:
 # http:
 #   base_url: example.duckdns.org:8123
 
-# Text to speech
-tts:
-  - platform: google_translate
-
 group: !include groups.yaml
 automation: !include_dir_merge_list automations
 script: !include scripts.yaml
@@ -29,109 +25,14 @@ homeassistant:
   customize: !include customize.yaml
   packages: !include_dir_named packages
 
-ios:
-
-prometheus:
-  namespace: hass
-
-# Example configuration.yaml entry
-zone:
-  - name: OSC
-    latitude: 40.000168
-    longitude: -83.040060
-    radius: 500
-    icon: mdi:work
-  - name: Giant Eagle
-    latitude: 40.034680
-    longitude: -83.133409
-    radius: 500
-    icon: mdi:work
-  - name: Home
-    latitude: !secret latitude
-    longitude: !secret longitude
-    radius: 800
-    icon: mdi:home
-
 discovery:
   ignore:
     - homekit
     - google_cast
-
+ios:
 mqtt:
   broker: 127.0.0.1
-
-roku:
-  # Living room roku
-  - host: 192.168.68.131
-  # Master roku
-  - host: 192.168.68.103
-  # Downstairs TV
-  - host: 192.168.68.122
-media_player:
-  - platform: vizio
-    host: 192.168.68.104
-    access_token: !secret vizio_access_token
-tplink:
-  discovery: false
-  dimmer:
-    # Dining light
-    - host: 192.168.68.108
-  switch:
-    # Front porch
-    - host: 192.168.68.126
-    # Kitchen light
-    - host: 192.168.68.119
-    # Master light
-    - host: 192.168.68.130
-    # Plug
-    - host: 192.168.68.132
-    # Plug
-    - host: 192.168.68.116
-hue:
-  bridges:
-    - host: 192.168.68.120
-light:
-  - platform: group
-    name: Living Room Lights
-    entities:
-      - light.living_room
-      - light.living_room_by_hallway
-meross_cloud:
-  username: !secret meross_username
-  password: !secret meross_password
-
-plex:
-  host: 192.168.68.105
-
-wake_on_lan:
-switch:
-  - platform: wake_on_lan
-    name: "desktop"
-    mac: '30:9c:23:df:11:70'
-    host: 192.168.68.105
-    turn_off:
-      service: script.desktop_sleep
-
-binary_sensor:
-  - platform: ping
-    host: 192.168.68.105
-    name: "desktop_ping"
-
-sabnzbd:
-  api_key: !secret sabnzbd_api_key
-  host: 192.168.68.105
-  port: 8085
-  name: sabnzbd
-  sensors:
-    - current_status
-
-alexa_media:
-  accounts:
-    - email: !secret amazon_user
-      password: !secret amazon_password
-      url: amazon.com
-      exclude_devices:
-        - "Connie's Alexa Apps"
-        - "This Device"
-        - "John's Alexa Apps"
-        - "John's Echo Auto"
+prometheus:
+  namespace: hass
+tts:
+  - platform: google_translate

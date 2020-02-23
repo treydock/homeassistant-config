@@ -1,0 +1,10 @@
+alexa_media:
+  accounts:
+    - email: !secret amazon_user
+      password: !secret amazon_password
+      url: amazon.com
+      exclude_devices:
+        - "Connie's Alexa Apps"
+        - "This Device"
+        - "John's Alexa Apps"
+        - "John's Echo Auto"

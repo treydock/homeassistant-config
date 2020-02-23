@@ -1,0 +1,16 @@
+zone:
+  - name: OSC
+    latitude: 40.000168
+    longitude: -83.040060
+    radius: 500
+    icon: mdi:work
+  - name: Giant Eagle
+    latitude: 40.034680
+    longitude: -83.133409
+    radius: 500
+    icon: mdi:work
+  - name: Home
+    latitude: !secret latitude
+    longitude: !secret longitude
+    radius: 800
+    icon: mdi:home
