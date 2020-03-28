@@ -1,7 +1,7 @@
 - alias: 'Run off living room roku when TV turns off'
   trigger:
     - platform: state
-      entity_id: media_player.vizio_smartcast
+      entity_id: media_player.family_room_tv
       to: 'off'
   action:
     - service: media_player.select_source
@@ -10,4 +10,4 @@
         source: Home
     - service: media_player.turn_off
       data:
-        entity_id: media_player.vizio_smartcast
+        entity_id: media_player.family_room_tv
