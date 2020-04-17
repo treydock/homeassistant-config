@@ -11,6 +11,6 @@ tplink:
     # Master light
     - host: 192.168.68.130
     # Plug
-    - host: 192.168.68.132
+    - host: 192.168.68.109
     # Plug
-    - host: 192.168.68.116
+    - host: 192.168.68.112
