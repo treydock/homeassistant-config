@@ -21,7 +21,9 @@ jobs:
       - name: Setup custom components
         run: |
           mkdir custom_components
-          git clone https://github.com/albertogeniola/meross-homeassistant.git custom_components/meross-homeassistant
-          git clone https://github.com/custom-components/alexa_media_player.git custom_components/alexa_media
+          git clone https://github.com/albertogeniola/meross-homeassistant.git /tmp/meross-homeassistant
+          cp -r /tmp/meross-homeassistant/custom_components/meross_cloud custom_components/meross_cloud
+          git clone https://github.com/custom-components/alexa_media_player.git /tmp/alexa_media_player
+          cp -r /tmp/alexa_media_player/custom_components/alexa_media custom_components/alexa_media
       - name: Run tests
         run: make test
