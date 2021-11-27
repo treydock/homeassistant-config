@@ -1,0 +1,27 @@
+name: Test
+
+on:
+  push:
+    branches:
+      - master
+      - main
+  pull_request:
+
+jobs:
+  tests:
+    strategy:
+      fail-fast: false
+    runs-on: ubuntu-latest
+    name: Tests
+    steps:
+      - name: Checkout ${{ github.sha }}
+        uses: actions/checkout@v2
+      - name: Setup secrets
+        run: mv .github/config/secrets.yaml secrets.yaml
+      - name: Setup custom components
+        run: |
+          mkdir custom_components
+          git clone https://github.com/albertogeniola/meross-homeassistant.git custom_components/meross-homeassistant
+          git clone https://github.com/custom-components/alexa_media_player.git custom_components/alexa_media
+      - name: Run tests
+        run: make test

@@ -10,6 +10,7 @@
 !.gitignore
 !*.md
 !Makefile
+!.github
 
 # Ignore folders.
 .storage
