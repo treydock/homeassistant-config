@@ -5,7 +5,7 @@ DIR := $(dir $(realpath $(firstword $(MAKEFILE_LIST))))
 TOKEN := $(shell cat $(DIR)/.token)
 
 test:
-	docker run -t --rm -v $(DIR):/config:ro -v /etc/localtime:/etc/localtime:ro homeassistant/home-assistant:stable hass -c /config --script check_config -i -f
+	docker run -t --rm --privileged -v $(DIR):/config:ro -v /etc/localtime:/etc/localtime:ro homeassistant/home-assistant:stable hass -c /config --script check_config -i -f
 
 check:
 	docker ps | grep -q "home-assistant"; \
