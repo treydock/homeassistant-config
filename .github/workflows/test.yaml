@@ -21,6 +21,8 @@ jobs:
       - name: Setup custom components
         run: |
           mkdir custom_components
+          wget -O /tmp/hacs.zip "https://github.com/hacs/integration/releases/latest/download/hacs.zip"
+          unzip /tmp/hacs.zip -d custom_components/hacs
           git clone https://github.com/albertogeniola/meross-homeassistant.git /tmp/meross-homeassistant
           cp -r /tmp/meross-homeassistant/custom_components/meross_cloud custom_components/meross_cloud
           wget -O /tmp/alexa_media.zip https://github.com/custom-components/alexa_media_player/releases/latest/download/alexa_media.zip
